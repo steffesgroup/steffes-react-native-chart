@@ -112,6 +112,8 @@ class LineChart extends Component {
     });
 
     this.currentX = 0;
+
+    this.k = 0;
   }
 
   renderLine = () => {
@@ -198,7 +200,7 @@ class LineChart extends Component {
           }
         </View>
         <View style={[styles.chart], {height: chartHeight}} {...this._panResponder.panHandlers}>
-          <Svg height="100%" width="100%">
+          <Svg height="100%" width="100%" key={this.k++}>
             <Rect
               x="0"
               y="0"
