@@ -139,10 +139,13 @@ class LineChart extends Component {
     //Possibly need to increment the step i.e (20 - step)
     y = y * .8 + 12;
 
+    let textY = y - 1  + '%';
+
+    let key = `container-${index}`;
+
     return (
-      <React.Fragment key={`container-${index}`}>
+      <React.Fragment key={key}>
       <Line
-        key={`line-${index}`}
         x1={0}
         y1={y + '%'}
         x2={width}
@@ -151,12 +154,11 @@ class LineChart extends Component {
         strokeWidth={backgroundStyle.lineStroke}
       />
       <SText
-        key={`text-${index}`}
         fill={backgroundStyle.labelColor}
         fontSize={backgroundStyle.labelFontSize}
         x='10'
-        y={y - 1 + '%'}
-        textAnchor='left'
+        y={textY}
+        textAnchor='start'
       >
         {value}
       </SText>
